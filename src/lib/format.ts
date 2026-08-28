@@ -24,7 +24,7 @@ export function formatPercent(ratio: number): string {
 }
 
 /**
- * Format months with one decimal and unit label.
+ * Format months with up to two decimals and unit label.
  * Example: 4.69 → "4,69 tháng"
  */
 export function formatMonths(months: number): string {

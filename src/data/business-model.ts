@@ -55,7 +55,7 @@ export const scenarios: readonly Scenario[] = [
     fixedCost: 1_200_000,
     monthlyRecovery: 3_840_000,
     paybackMonths: 4.69,
-    rampPaybackLabel: '6–8 months',
+    rampPaybackLabel: '6–8 tháng',
   },
   {
     label: 'aggressive',
@@ -74,6 +74,12 @@ export interface ProductExample {
   readonly name: string;
   readonly weightGrams: number;
   readonly printHours: number;
+  /**
+   * Fully loaded cost includes material + machine + active labor,
+   * post-processing, and packaging. Intentionally higher than the
+   * materialMachineCost returned by finance.ts, which excludes
+   * labor, post-processing, and packaging.
+   */
   readonly fullyLoadedCost: number;
   readonly sellRangeLow: number;
   readonly sellRangeHigh: number;
@@ -201,12 +207,12 @@ export interface TargetBand {
 export const targetBands: readonly TargetBand[] = [
   {
     utilizationRange: '20–25%',
-    paybackRange: '~12 months',
+    paybackRange: '~12 tháng',
     note: 'Conservative baseline.',
   },
   {
     utilizationRange: '30–40%',
-    paybackRange: '6–8 months',
+    paybackRange: '6–8 tháng',
     note: 'Realistic target with steady demand.',
   },
 ];
