@@ -26,6 +26,7 @@ export function renderHostingerCost(): HTMLElement {
       <p>Gi&aacute; hosting t&#7889;i &#432;u cho website t&iacute;nh (static site).</p>
       <div class="table-wrapper">
         <table>
+          <caption class="visually-hidden">B&#7843;ng gi&aacute; hosting Hostinger: khuy&#7871;n m&atilde;i, tr&#7843; tr&#432;&#7899;c v&agrave; gia h&#7841;n</caption>
           <thead>
             <tr>
               <th>G&oacute;i</th>

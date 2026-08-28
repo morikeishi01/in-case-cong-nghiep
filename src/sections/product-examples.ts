@@ -29,6 +29,7 @@ export function renderProductExamples(): HTMLElement {
       <p>Gi&aacute; th&agrave;nh &ldquo;fully loaded&rdquo; bao g&#7891;m v&#7853;t li&#7879;u, m&aacute;y, nh&acirc;n c&ocirc;ng l&#7853;p t&#7921;, gia c&ocirc;ng h&#7853;u k&#7929; v&agrave; &#273;&oacute;ng g&oacute;i.</p>
       <div class="table-wrapper">
         <table>
+          <caption class="visually-hidden">B&#7843;ng v&iacute; d&#7921; s&#7843;n ph&#7849;m: gi&aacute; th&agrave;nh, gi&aacute; b&aacute;n v&agrave; l&#7907;i nhu&#7853;n bi&ecirc;n</caption>
           <thead>
             <tr>
               <th>S&#7843;n ph&#7849;m</th>
@@ -44,7 +45,7 @@ export function renderProductExamples(): HTMLElement {
           </tbody>
         </table>
       </div>
-      <p class="dim-label" style="margin-top:calc(var(--grid-unit)*0.5);">
+      <p class="dim-label section-note">
         L&#7907;i nhu&#7853;n bi&ecirc;n t&iacute;nh t&#7915; gi&aacute; b&aacute;n th&#7845;p nh&#7845;t &minus; gi&aacute; th&agrave;nh fully loaded.
         <span class="dim-label">K&#7871;t qu&#7843; m&ocirc; h&igrave;nh.</span>
       </p>

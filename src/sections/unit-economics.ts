@@ -12,6 +12,7 @@ export function renderUnitEconomics(): HTMLElement {
       </div>
       <div class="table-wrapper">
         <table>
+          <caption class="visually-hidden">B&#7843;ng kinh t&#7871; &#273;&#417;n v&#7883;: gi&aacute; filament, t&#7887; l&#7879; ph&iacute;, gi&aacute; th&agrave;nh hi&#7879;u l&#7921;c</caption>
           <thead>
             <tr>
               <th>Th&ocirc;ng s&#7889;</th>

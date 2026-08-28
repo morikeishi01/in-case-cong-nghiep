@@ -20,7 +20,7 @@ export function renderUtilizationScenarios(): HTMLElement {
     if (isAggressive) cls += ' dossier-aggressive';
 
     return `
-      <div class="${cls}">
+      <article class="${cls}">
         <div class="dossier-header">${labelMap[s.label] ?? s.label}</div>
         <div class="dossier-row"><span>S&#7917; d&#7909;ng</span><span class="data">${formatPercent(s.utilization)}</span></div>
         <div class="dossier-row"><span>Gi&#7901; b&aacute;n</span><span class="data">${s.soldHours} h/th&aacute;ng</span></div>
@@ -29,7 +29,7 @@ export function renderUtilizationScenarios(): HTMLElement {
         <div class="dossier-row"><span>Thu l&#7841;i/th&aacute;ng</span><span class="data">${formatVND(s.monthlyRecovery)}</span></div>
         ${s.rampPaybackLabel ? `<div class="dossier-row"><span>Ramp-up</span><span class="data">${s.rampPaybackLabel}</span></div>` : ''}
         <div class="dossier-payback">${formatMonths(s.paybackMonths)}</div>
-      </div>`;
+      </article>`;
   }).join('');
 
   section.innerHTML = `
@@ -41,7 +41,7 @@ export function renderUtilizationScenarios(): HTMLElement {
       <div class="dossier-grid">
         ${dossiers}
       </div>
-      <p class="dim-label" style="margin-top:calc(var(--grid-unit)*0.75);">
+      <p class="dim-label section-note--wide">
         Thu l&#7841;i = &#273;&oacute;ng g&oacute;p/h &times; gi&#7901; b&aacute;n &minus; chi ph&iacute; c&#7889; &#273;&#7883;nh.
         Ho&agrave;n v&#7889;n = v&#7889;n &divide; thu l&#7841;i/th&aacute;ng.
         <span class="dim-label">K&#7871;t qu&#7843; m&ocirc; h&igrave;nh.</span>

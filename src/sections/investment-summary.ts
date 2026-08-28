@@ -13,6 +13,7 @@ export function renderInvestmentSummary(): HTMLElement {
       <p>V&#7889;n kh&#7903;i &#273;&#7847;u d&#432;&#7899;i 20 tri&#7879;u &#273;&#7891;ng cho m&#7897;t m&aacute;y in FDM + v&#7853;t t&#432; ban &#273;&#7847;u.</p>
       <div class="table-wrapper">
         <table>
+          <caption class="visually-hidden">B&#7843;ng t&#7893;ng quan &#273;&#7847;u t&#432; kh&#7903;i &#273;&#7847;u</caption>
           <thead>
             <tr>
               <th>H&#7841;ng m&#7909;c</th>
@@ -39,7 +40,7 @@ export function renderInvestmentSummary(): HTMLElement {
           </tbody>
         </table>
       </div>
-      <p class="dim-label" style="margin-top:calc(var(--grid-unit)*0.5);">
+      <p class="dim-label section-note">
         Gi&#7843; &#273;&#7883;nh: gi&aacute; m&aacute;y v&agrave; filament t&#7841;i th&#7901;i &#273;i&#7875;m l&#7853;p k&#7871; ho&#7841;ch. Kh&ocirc;ng bao g&#7891;m chi ph&iacute; v&#7853;n chuy&#7875;n, thu&#7871;, ho&#7863;c owner salary.
       </p>
     </div>

@@ -11,7 +11,7 @@ export function renderHero(): HTMLElement {
         <div class="hero-text">
           <p class="dim-label">[01] Giới thiệu</p>
           <h1>IN CASE C&Ocirc;NG NGHI&#7878;P</h1>
-          <p style="margin-top:calc(var(--grid-unit)*0.5);opacity:0.8;">
+          <p class="hero-subtitle">
             V&#7871;t in b&#7843;o v&#7879; c&ocirc;ng nghi&#7879;p &mdash; FDM 3D Printing
           </p>
           <div class="capital-badge">
@@ -22,7 +22,7 @@ export function renderHero(): HTMLElement {
             &ldquo;L&#7907;i nhu&#7853;n kh&ocirc;ng n&#7857;m &#7903; s&#7889; gram nh&#7921;a; l&#7907;i nhu&#7853;n n&#7857;m &#7903; gi&aacute; tr&#7883; tr&ecirc;n m&#7895;i gi&#7901; m&aacute;y.&rdquo;
           </blockquote>
         </div>
-        <div class="hero-svg" aria-hidden="true">
+        <div class="hero-svg">
           <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FDM printer technical drawing">
             <!-- Frame: two vertical pillars + top beam -->
             <line x1="100" y1="60" x2="100" y2="320" stroke="var(--line)" stroke-width="1.5"/>

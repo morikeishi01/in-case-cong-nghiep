@@ -52,7 +52,7 @@
 .section-index {
   font-family: var(--font-data);
   font-size: 0.75rem;
-  opacity: 0.45;
+  opacity: 0.7;
   letter-spacing: 0.04em;
   flex-shrink: 0;
 }
@@ -228,7 +228,7 @@
 
 .hypo-tag--sensitivity {
   color: var(--paper);
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 /* ── Timeline ───────────────────────────────────────────────────────── */
@@ -368,3 +368,46 @@ tr.total-row td {
   margin: calc(var(--grid-unit) * 1.5) 0;
   line-height: 1.5;
 }
+
+/* ── Hero subtitle ─────────────────────────────────────────────────── */
+.hero-subtitle {
+  margin-top: calc(var(--grid-unit) * 0.5);
+  opacity: 0.8;
+}
+
+/* ── Section notes (dim-label at end of sections) ──────────────────── */
+.section-note {
+  margin-top: calc(var(--grid-unit) * 0.5);
+}
+
+.section-note--wide {
+  margin-top: calc(var(--grid-unit) * 0.75);
+}
+
+/* ── CTA layout helpers ────────────────────────────────────────────── */
+.cta-summary {
+  max-width: 640px;
+  margin: 0 auto calc(var(--grid-unit) * 1.5);
+}
+
+.cta-lead {
+  margin-bottom: calc(var(--grid-unit) * 1);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.cta-contact {
+  margin-top: calc(var(--grid-unit) * 1.5);
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* ── Scenario dossiers as articles ─────────────────────────────────── */
+/* Visually identical to .dossier; semantic alias for <article> */
+article.dossier {
+  border: 1px solid var(--line);
+  padding: calc(var(--grid-unit) * 1);
+  background: rgba(4, 42, 73, 0.5);
+}
+
+

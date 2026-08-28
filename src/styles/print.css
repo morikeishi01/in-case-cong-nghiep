@@ -1,0 +1,153 @@
+/* ── Print Stylesheet ──────────────────────────────────────────────── */
+/* Readable black-on-white PDF, 2cm margins, preserve tables & scenarios */
+
+@media print {
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+
+  /* Black on white for readability */
+  * {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #000 !important;
+  }
+
+  /* Preserve table readability */
+  table {
+    page-break-inside: auto;
+  }
+
+  tr, th, td {
+    page-break-inside: avoid;
+    border: 1px solid #666 !important;
+    padding: 4px 8px !important;
+  }
+
+  th {
+    font-weight: 700;
+    text-align: left;
+  }
+
+  /* Preserve scenario dossiers */
+  .dossier {
+    border: 1px solid #666 !important;
+    background: #fff !important;
+    page-break-inside: avoid;
+    margin-bottom: 1em;
+    padding: 0.5em;
+  }
+
+  .dossier-header {
+    font-weight: 700;
+    border-bottom: 1px solid #999;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+  }
+
+  .dossier-payback {
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+
+  /* Avoid page breaks inside sections */
+  section {
+    page-break-inside: avoid;
+  }
+
+  .section-inner {
+    padding: 0.5cm 0;
+  }
+
+  /* Hide interactive calculator input controls (when added in Task5)
+     but keep results visible */
+  .roi-calculator-controls,
+  .roi-calculator-controls input,
+  .roi-calculator-controls select,
+  .roi-calculator-controls button,
+  .roi-calculator-controls label {
+    display: none !important;
+  }
+
+  .roi-calculator-results {
+    display: block !important;
+  }
+
+  /* Show URLs after links */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+
+  /* Do not show URLs for internal anchors or fragment links */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: none !important;
+  }
+
+  /* Band backgrounds become white */
+  .band-dark,
+  .band-light {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .band-dark *,
+  .band-light * {
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  /* Keep signal color as bold text instead */
+  .capital-badge {
+    border: 2px solid #000 !important;
+    font-weight: 700;
+  }
+
+  .dossier-payback {
+    color: #000 !important;
+    font-weight: 700;
+  }
+
+  .key-line {
+    border-left-color: #000 !important;
+    font-style: italic;
+  }
+
+  /* Hero layout to single column for print */
+  .hero-layout {
+    display: block;
+  }
+
+  .hero-svg {
+    max-width: 60%;
+    margin: 1em auto;
+    display: block;
+  }
+
+  /* Skip link hidden in print */
+  .skip-link {
+    display: none !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid #ccc;
+    padding-top: 0.5em;
+    font-size: 0.8em;
+  }
+
+  /* Source ref for Hostinger */
+  .source-ref {
+    font-size: 0.75em;
+  }
+
+  .caveat {
+    font-style: italic;
+  }
+}

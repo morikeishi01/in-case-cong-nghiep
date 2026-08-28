@@ -25,6 +25,7 @@ export function renderWebBuildCost(): HTMLElement {
       <p>U&#7899;c t&iacute;nh th&#7883; tr&#432;&#7901;ng cho vi&#7879;c x&acirc;y d&#7921;ng website gi&#7899;i thi&#7879;u doanh nghi&#7879;p.</p>
       <div class="table-wrapper">
         <table>
+          <caption class="visually-hidden">B&#7843;ng &#432;&#7899;c t&iacute;nh chi ph&iacute; x&acirc;y d&#7921;ng website theo h&#7841;ng m&#7909;c</caption>
           <thead>
             <tr>
               <th>H&#7841;ng m&#7909;c</th>
@@ -42,7 +43,7 @@ export function renderWebBuildCost(): HTMLElement {
           </tbody>
         </table>
       </div>
-      <p class="dim-label" style="margin-top:calc(var(--grid-unit)*0.5);">
+      <p class="dim-label section-note">
         Gi&#7843; &#273;&#7883;nh: &#432;&#7899;c t&iacute;nh th&#7883; tr&#432;&#7901;ng, kh&ocirc;ng ph&#7843;i b&aacute;o gi&aacute; c&#7909; th&#7875;.
       </p>
     </div>

@@ -111,6 +111,40 @@ ul, ol {
 li { margin-bottom: 0.35em; }
 li:last-child { margin-bottom: 0; }
 
+/* ── Skip link ─────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: calc(var(--grid-unit) * 0.5);
+  z-index: 1000;
+  padding: calc(var(--grid-unit) * 0.5) calc(var(--grid-unit) * 1);
+  background: var(--signal);
+  color: var(--ink);
+  font-weight: 600;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: calc(var(--grid-unit) * 0.5);
+}
+
+/* ── Visually hidden (accessible to screen readers) ────────────────── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── Focus visible ──────────────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--line);

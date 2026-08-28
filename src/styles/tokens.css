@@ -16,4 +16,11 @@
   --grid-unit: 24px;
   --max-width: 1180px;
   --radius: 4px;
+
+  /* ── Color alpha tokens ── */
+  --alpha-line-low: rgba(101, 184, 232, 0.15);
+  --alpha-line-mid: rgba(101, 184, 232, 0.25);
+  --alpha-line-border: rgba(101, 184, 232, 0.3);
+  --alpha-blueprint-ghost: rgba(7, 59, 102, 0.08);
+  --alpha-signal-tint: rgba(242, 201, 76, 0.05);
 }

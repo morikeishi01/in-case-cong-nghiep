@@ -2,6 +2,7 @@
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/blueprint.css';
+import './styles/print.css';
 
 /* ── Section renderers ───────────────────────────────────────────────── */
 import { renderHero } from './sections/hero';
