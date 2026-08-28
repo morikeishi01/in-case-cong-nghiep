@@ -1,3 +1,5 @@
+import { effectiveCostPerGram } from '../lib/finance';
+
 // ── Business Assumptions ──────────────────────────────────────────────
 
 export interface BusinessAssumptions {
@@ -11,16 +13,25 @@ export interface BusinessAssumptions {
   readonly maxCalendarHoursPerMonth: number;
 }
 
+const _filamentCostPerKg = 300_000;
+const _wasteRate = 0.1;
+
 export const assumptions: BusinessAssumptions = {
   printerCost: 12_000_000,
   filamentInventory: 3_000_000,
   startupBaseline: 18_000_000,
-  filamentCostPerKg: 300_000,
-  wasteRate: 0.1,
-  effectiveCostPerGram: 333.33,
+  filamentCostPerKg: _filamentCostPerKg,
+  wasteRate: _wasteRate,
+  effectiveCostPerGram: effectiveCostPerGram(_filamentCostPerKg, _wasteRate),
   machineRatePerHour: 4_000,
   maxCalendarHoursPerMonth: 720,
 };
+
+// ── Presentation rounding note ───────────────────────────────────────
+// Scenario monthlyRecovery and paybackMonths are pre-computed for display.
+// monthlyRecovery is exact (integer arithmetic).
+// paybackMonths is rounded to 2 decimal places for presentation; tests
+// verify the stored value is within 0.05 month of the computed value.
 
 // ── Utilization Scenarios ─────────────────────────────────────────────
 

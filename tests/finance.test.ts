@@ -8,7 +8,7 @@ import {
   paybackMonths,
   maxHoursPerMonth,
 } from '../src/lib/finance';
-import { assumptions } from '../src/data/business-model';
+import { assumptions, scenarios } from '../src/data/business-model';
 
 // ── 1. effectiveCostPerGram ────────────────────────────────────────────
 
@@ -108,5 +108,232 @@ describe('maxHoursPerMonth', () => {
 
   it('equals assumptions.maxCalendarHoursPerMonth', () => {
     expect(maxHoursPerMonth(24, 30)).toBe(assumptions.maxCalendarHoursPerMonth);
+  });
+});
+
+// ── 8. Validation: wasteRate edge cases ──────────────────────────────
+
+describe('effectiveCostPerGram validation', () => {
+  it('wasteRate = 1 throws RangeError', () => {
+    expect(() => effectiveCostPerGram(300_000, 1)).toThrow(RangeError);
+  });
+
+  it('wasteRate = -0.1 throws RangeError', () => {
+    expect(() => effectiveCostPerGram(300_000, -0.1)).toThrow(RangeError);
+  });
+
+  it('wasteRate = NaN throws RangeError', () => {
+    expect(() => effectiveCostPerGram(300_000, NaN)).toThrow(RangeError);
+  });
+
+  it('wasteRate = Infinity throws RangeError', () => {
+    expect(() => effectiveCostPerGram(300_000, Infinity)).toThrow(RangeError);
+  });
+
+  it('costPerKg = NaN throws RangeError', () => {
+    expect(() => effectiveCostPerGram(NaN, 0.1)).toThrow(RangeError);
+  });
+
+  it('costPerKg = -1 throws RangeError', () => {
+    expect(() => effectiveCostPerGram(-1, 0.1)).toThrow(RangeError);
+  });
+
+  it('costPerKg = Infinity throws RangeError', () => {
+    expect(() => effectiveCostPerGram(Infinity, 0.1)).toThrow(RangeError);
+  });
+
+  it('costPerKg = 0 is valid (free filament)', () => {
+    expect(effectiveCostPerGram(0, 0.1)).toBe(0);
+  });
+});
+
+// ── 9. Validation: hours = 0 for calculateContributionPerHour ────────
+
+describe('calculateContributionPerHour validation', () => {
+  it('hours = 0 throws RangeError', () => {
+    expect(() => calculateContributionPerHour(1000, 0)).toThrow(RangeError);
+  });
+
+  it('hours = -1 throws RangeError', () => {
+    expect(() => calculateContributionPerHour(1000, -1)).toThrow(RangeError);
+  });
+
+  it('contribution = NaN throws RangeError', () => {
+    expect(() => calculateContributionPerHour(NaN, 2)).toThrow(RangeError);
+  });
+
+  it('hours = NaN throws RangeError', () => {
+    expect(() => calculateContributionPerHour(1000, NaN)).toThrow(RangeError);
+  });
+
+  it('contribution = Infinity throws RangeError', () => {
+    expect(() => calculateContributionPerHour(Infinity, 2)).toThrow(RangeError);
+  });
+
+  it('negative contribution is valid (loss-making product)', () => {
+    expect(calculateContributionPerHour(-5000, 2)).toBe(-2500);
+  });
+});
+
+// ── 10. Validation: NaN / non-finite on all functions ────────────────
+
+describe('NaN and non-finite rejection', () => {
+  it('materialMachineCost rejects NaN weightGrams', () => {
+    expect(() => materialMachineCost(NaN, 100, 2, 4000)).toThrow(RangeError);
+  });
+
+  it('materialMachineCost rejects Infinity costPerGram', () => {
+    expect(() => materialMachineCost(50, Infinity, 2, 4000)).toThrow(RangeError);
+  });
+
+  it('materialMachineCost rejects -Infinity hours', () => {
+    expect(() => materialMachineCost(50, 100, -Infinity, 4000)).toThrow(RangeError);
+  });
+
+  it('contributionMargin rejects NaN sellPrice', () => {
+    expect(() => contributionMargin(NaN, 100)).toThrow(RangeError);
+  });
+
+  it('contributionMargin rejects Infinity fullyLoadedCost', () => {
+    expect(() => contributionMargin(100, Infinity)).toThrow(RangeError);
+  });
+
+  it('monthlyRecovery rejects NaN contributionPerHourValue', () => {
+    expect(() => monthlyRecovery(NaN, 100, 5000)).toThrow(RangeError);
+  });
+
+  it('monthlyRecovery rejects Infinity soldHours', () => {
+    expect(() => monthlyRecovery(1000, Infinity, 5000)).toThrow(RangeError);
+  });
+
+  it('maxHoursPerMonth rejects NaN hoursPerDay', () => {
+    expect(() => maxHoursPerMonth(NaN, 30)).toThrow(RangeError);
+  });
+
+  it('maxHoursPerMonth rejects -Infinity daysPerMonth', () => {
+    expect(() => maxHoursPerMonth(24, -Infinity)).toThrow(RangeError);
+  });
+});
+
+// ── 11. Validation: negative / zero capital ──────────────────────────
+
+describe('paybackMonths validation', () => {
+  it('capital = 0 returns 0', () => {
+    expect(paybackMonths(0, 1_000_000)).toBe(0);
+  });
+
+  it('capital = -1 throws RangeError', () => {
+    expect(() => paybackMonths(-1, 1_000_000)).toThrow(RangeError);
+  });
+
+  it('capital = NaN throws RangeError', () => {
+    expect(() => paybackMonths(NaN, 1_000_000)).toThrow(RangeError);
+  });
+
+  it('capital = Infinity throws RangeError', () => {
+    expect(() => paybackMonths(Infinity, 1_000_000)).toThrow(RangeError);
+  });
+
+  it('monthlyRecoveryValue = NaN throws RangeError', () => {
+    expect(() => paybackMonths(18_000_000, NaN)).toThrow(RangeError);
+  });
+
+  it('monthlyRecoveryValue = Infinity throws RangeError', () => {
+    expect(() => paybackMonths(18_000_000, Infinity)).toThrow(RangeError);
+  });
+
+  it('negative recovery returns Infinity', () => {
+    expect(paybackMonths(18_000_000, -500_000)).toBe(Infinity);
+  });
+
+  it('zero recovery returns Infinity', () => {
+    expect(paybackMonths(18_000_000, 0)).toBe(Infinity);
+  });
+});
+
+// ── 12. Negative contribution margin (loss-making) ───────────────────
+
+describe('negative contribution margin', () => {
+  it('contributionMargin allows negative (cost > price)', () => {
+    expect(contributionMargin(30_000, 46_700)).toBe(-16_700);
+  });
+
+  it('monthlyRecovery allows negative result', () => {
+    // contributionPerHour * soldHours < fixedCost
+    expect(monthlyRecovery(5_000, 100, 1_000_000)).toBe(-500_000);
+  });
+
+  it('paybackMonths with negative recovery → Infinity', () => {
+    expect(paybackMonths(18_000_000, -500_000)).toBe(Infinity);
+  });
+});
+
+// ── 13. Non-negative guards on materialMachineCost / monthlyRecovery ─
+
+describe('non-negative guards', () => {
+  it('materialMachineCost rejects negative weightGrams', () => {
+    expect(() => materialMachineCost(-1, 100, 2, 4000)).toThrow(RangeError);
+  });
+
+  it('materialMachineCost rejects negative costPerGram', () => {
+    expect(() => materialMachineCost(50, -1, 2, 4000)).toThrow(RangeError);
+  });
+
+  it('materialMachineCost rejects negative hours', () => {
+    expect(() => materialMachineCost(50, 100, -1, 4000)).toThrow(RangeError);
+  });
+
+  it('materialMachineCost rejects negative machineRate', () => {
+    expect(() => materialMachineCost(50, 100, 2, -1)).toThrow(RangeError);
+  });
+
+  it('monthlyRecovery rejects negative soldHours', () => {
+    expect(() => monthlyRecovery(1000, -1, 5000)).toThrow(RangeError);
+  });
+
+  it('monthlyRecovery rejects negative fixedCost', () => {
+    expect(() => monthlyRecovery(1000, 100, -1)).toThrow(RangeError);
+  });
+
+  it('maxHoursPerMonth rejects negative hoursPerDay', () => {
+    expect(() => maxHoursPerMonth(-1, 30)).toThrow(RangeError);
+  });
+
+  it('maxHoursPerMonth rejects negative daysPerMonth', () => {
+    expect(() => maxHoursPerMonth(24, -1)).toThrow(RangeError);
+  });
+});
+
+// ── 14. Scenario formula exactness & rounding tolerance ──────────────
+
+describe('scenario values match formulas', () => {
+  const capital = assumptions.startupBaseline; // 18,000,000
+
+  for (const s of scenarios) {
+    describe(s.label, () => {
+      const expectedRecovery =
+        s.contributionPerHour * s.soldHours - s.fixedCost;
+      const expectedPayback = capital / expectedRecovery;
+
+      it(`monthlyRecovery matches formula exactly (${expectedRecovery})`, () => {
+        expect(s.monthlyRecovery).toBe(expectedRecovery);
+      });
+
+      it(`stored paybackMonths ${s.paybackMonths} is within 0.05 of computed ${expectedPayback.toFixed(4)}`, () => {
+        expect(Math.abs(s.paybackMonths - expectedPayback)).toBeLessThan(0.05);
+      });
+    });
+  }
+});
+
+// ── 15. Derived effectiveCostPerGram in assumptions ──────────────────
+
+describe('assumptions.effectiveCostPerGram', () => {
+  it('matches effectiveCostPerGram(filamentCostPerKg, wasteRate)', () => {
+    const computed = effectiveCostPerGram(
+      assumptions.filamentCostPerKg,
+      assumptions.wasteRate,
+    );
+    expect(assumptions.effectiveCostPerGram).toBe(computed);
   });
 });
