@@ -1,0 +1,19 @@
+:root {
+  /* ── Color Palette ── */
+  --blueprint: #073B66;
+  --deep: #042A49;
+  --line: #65B8E8;
+  --paper: #F3F8FB;
+  --signal: #F2C94C;
+  --ink: #102433;
+
+  /* ── Typography ── */
+  --font-heading: Bahnschrift, 'Arial Narrow', sans-serif;
+  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-data: 'Cascadia Code', Consolas, monospace;
+
+  /* ── Layout ── */
+  --grid-unit: 24px;
+  --max-width: 1180px;
+  --radius: 4px;
+}
