@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Test coverage
+coverage/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Git worktrees (managed separately)
+.worktrees/
+
+# Docker compose overrides
+.compose/
+
+# Playwright
+playwright-report/
+test-results/
+
+# Logs
+*.log
