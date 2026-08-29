@@ -21,7 +21,7 @@ Trang web mot trang (single-page) danh cho nha dau tu va doi tac, trinh bay:
 | Filament cost | 300,000 VND/kg, hao hut 10%, hieu dung 333.33 VND/g |
 | Gia may mac dinh | 4,000 VND/gio |
 | Hoan von (co ban, 35%) | 4.69 thang |
-| Hoan van (bao thu, 20%) | 24.7 thang |
+| Hoàn vốn (bảo thủ, 20%) | 24.7 thang |
 | Hoan von (tich cung, 55%) | 1.88 thang |
 
 ## Tech Stack

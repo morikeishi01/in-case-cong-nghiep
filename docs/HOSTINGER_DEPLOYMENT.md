@@ -14,7 +14,7 @@ npm run build
 
 Lenh nay se:
 1. Kiem tra type TypeScript (`tsc --noEmit`)
-2. Build ra thu muc `dist/` voi `index.html`, `assets/`, `favicon.svg`, `og-image.png`
+2. Build ra thu muc `dist/` voi `index.html`, `assets/`, `favicon.svg`, `og-image.svg`, `og-image.png`
 
 Kiem tra khong co loi truoc khi tiep tuc.
 
@@ -42,7 +42,7 @@ Kiem tra khong co loi truoc khi tiep tuc.
 
 Cach thuc:
 1. Mo thu muc `dist/` tren may tinh local
-2. Chon tat ca file va thu muc ben trong (`index.html`, `assets/`, `favicon.svg`, `og-image.png`)
+2. Chon tat ca file va thu muc ben trong (`index.html`, `assets/`, `favicon.svg`, `og-image.svg`, `og-image.png`)
 3. Upload tat ca vao `public_html`
 
 Ket qua:
@@ -53,6 +53,7 @@ public_html/
     index-[hash].js
     index-[hash].css
   favicon.svg
+  og-image.svg
   og-image.png
 ```
 
@@ -100,7 +101,7 @@ public_html/
 ## Checklist trien khai (6 buoc)
 
 - [ ] `npm run build` thanh cong, khong co loi
-- [ ] Thu muc `dist/` chua `index.html`, `assets/`, `favicon.svg`, `og-image.png`
+- [ ] Thu muc `dist/` chua `index.html`, `assets/`, `favicon.svg`, `og-image.svg`, `og-image.png`
 - [ ] Dang nhap hPanel, mo File Manager, vao `public_html`
 - [ ] Xoa file mac dinh, upload noi dung `dist/` (khong phai thu muc `dist/`)
 - [ ] SSL hoat dong, site truy cap duoc qua `https://`
