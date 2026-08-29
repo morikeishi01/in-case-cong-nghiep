@@ -8,6 +8,7 @@
     "noUnusedParameters": true,
     "exactOptionalPropertyTypes": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["node"],
     "skipLibCheck": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
