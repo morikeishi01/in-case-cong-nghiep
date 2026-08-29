@@ -99,7 +99,6 @@ export function createUtilizationChart(
     class: 'roi-chart-svg',
     viewBox: `0 0 ${svgWidth} ${chartHeight}`,
     width: '100%',
-    height: String(chartHeight),
   });
 
   // Title for accessibility

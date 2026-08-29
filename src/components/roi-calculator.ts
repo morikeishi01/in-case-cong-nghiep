@@ -100,6 +100,36 @@ const scenarioPresets: readonly ScenarioPreset[] = [
   { label: 'Tích cực', utilization: 0.55, contributionPerHour: 28_000, fixedCost: 1_500_000 },
 ];
 
+// ── DOM helpers ─────────────────────────────────────────────────────
+
+/**
+ * Query a required element by selector with a type assertion.
+ * Throws a descriptive error if the element is missing (template drift).
+ */
+function queryRequired<K extends keyof HTMLElementTagNameMap>(
+  container: HTMLElement,
+  selector: K,
+): HTMLElementTagNameMap[K];
+function queryRequired<T extends Element>(
+  container: HTMLElement,
+  selector: string,
+  expectedType: string,
+): T;
+function queryRequired(
+  container: HTMLElement,
+  selector: string,
+  expectedType?: string,
+): Element {
+  const el = container.querySelector(selector);
+  if (!el) {
+    const desc = expectedType ?? selector;
+    throw new Error(
+      `Required element "${selector}" (${desc}) not found — template may have drifted.`,
+    );
+  }
+  return el;
+}
+
 // ── DOM component ───────────────────────────────────────────────────
 
 /**
@@ -181,17 +211,18 @@ export function createRoiCalculator(container: HTMLElement): void {
     </div>
   `;
 
-  // Element references
-  const elUtilization = container.querySelector('#roi-utilization') as HTMLInputElement;
-  const elUtilizationVal = container.querySelector('#roi-utilization-val') as HTMLOutputElement;
-  const elContribution = container.querySelector('#roi-contribution') as HTMLInputElement;
-  const elFixed = container.querySelector('#roi-fixed') as HTMLInputElement;
-  const elCapital = container.querySelector('#roi-capital') as HTMLInputElement;
-  const elOutHours = container.querySelector('#roi-out-hours') as HTMLOutputElement;
-  const elOutRecovery = container.querySelector('#roi-out-recovery') as HTMLOutputElement;
-  const elOutPayback = container.querySelector('#roi-out-payback') as HTMLOutputElement;
-  const elError = container.querySelector('#roi-error') as HTMLElement;
-  const chartContainer = container.querySelector('#roi-chart-container') as HTMLElement;
+  // Element references — typed query helper throws on template drift
+  const elUtilization = queryRequired<HTMLInputElement>(container, '#roi-utilization', 'HTMLInputElement');
+  const elUtilizationVal = queryRequired<HTMLOutputElement>(container, '#roi-utilization-val', 'HTMLOutputElement');
+  const elContribution = queryRequired<HTMLInputElement>(container, '#roi-contribution', 'HTMLInputElement');
+  const elFixed = queryRequired<HTMLInputElement>(container, '#roi-fixed', 'HTMLInputElement');
+  const elCapital = queryRequired<HTMLInputElement>(container, '#roi-capital', 'HTMLInputElement');
+  const elOutHours = queryRequired<HTMLOutputElement>(container, '#roi-out-hours', 'HTMLOutputElement');
+  const elOutRecovery = queryRequired<HTMLOutputElement>(container, '#roi-out-recovery', 'HTMLOutputElement');
+  const elOutPayback = queryRequired<HTMLOutputElement>(container, '#roi-out-payback', 'HTMLOutputElement');
+  const elError = queryRequired<HTMLElement>(container, '#roi-error', 'HTMLElement');
+  const chartContainer = queryRequired<HTMLElement>(container, '#roi-chart-container', 'HTMLElement');
+  const elResults = queryRequired<HTMLElement>(container, '.roi-calculator-results', 'HTMLElement');
 
   // Last valid result for preserving display on invalid input
   let lastValidResult: RoiProjection | null = null;
@@ -226,22 +257,29 @@ export function createRoiCalculator(container: HTMLElement): void {
     return formatMonths(months);
   }
 
+  function markStale(stale: boolean): void {
+    elResults.classList.toggle('roi-results--stale', stale);
+  }
+
   function update(): void {
     elError.textContent = '';
     elError.style.display = 'none';
+    markStale(false);
 
     const inputs = readInputs();
     if (!inputs) {
       if (lastValidResult) {
-        // Keep last valid result visible
+        // Keep last valid result visible but mark stale
         elError.textContent = 'Vui lòng nhập đầy đủ giá trị hợp lệ.';
         elError.style.display = '';
+        markStale(true);
       } else {
         elOutHours.textContent = '—';
         elOutRecovery.textContent = '—';
         elOutPayback.textContent = '—';
         elError.textContent = 'Vui lòng nhập đầy đủ giá trị hợp lệ.';
         elError.style.display = '';
+        markStale(true);
       }
       return;
     }
@@ -251,6 +289,7 @@ export function createRoiCalculator(container: HTMLElement): void {
     if (utilPct < 5 || utilPct > 80) {
       elError.textContent = 'Tỷ lệ sử dụng phải từ 5% đến 80%.';
       elError.style.display = '';
+      markStale(true);
       return;
     }
 
@@ -269,6 +308,7 @@ export function createRoiCalculator(container: HTMLElement): void {
       if (err instanceof RangeError) {
         elError.textContent = err.message;
         elError.style.display = '';
+        markStale(true);
         if (!lastValidResult) {
           elOutHours.textContent = '—';
           elOutRecovery.textContent = '—';

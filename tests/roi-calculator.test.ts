@@ -53,35 +53,24 @@ describe('calculateRoiProjection – custom 30%', () => {
 // ── Zero recovery → Infinity payback ────────────────────────────────
 
 describe('calculateRoiProjection – zero recovery', () => {
-  // contribution × soldHours = fixedCost → recovery = 0
+  // Integer-arithmetic exact zero: 20,000 × 50 − 1,000,000 = 0
   const result = calculateRoiProjection({
-    utilization: 0.10,
-    contributionPerHour: 16_667, // 16,667 × 72 = ~1,200,003 ≈ fixedCost
-    fixedCost: 1_200_000,
+    utilization: 0.50,
+    contributionPerHour: 20_000,
+    fixedCost: 1_000_000,
     startupCapital: assumptions.startupBaseline,
-    maxCalendarHoursPerMonth: assumptions.maxCalendarHoursPerMonth,
+    maxCalendarHoursPerMonth: 100,
   });
 
-  it('soldHours = 0.10 × 720 = 72', () => {
-    expect(result.soldHours).toBe(72);
+  it('soldHours = 0.50 × 100 = 50', () => {
+    expect(result.soldHours).toBe(50);
   });
 
-  // 16667 * 72 = 1,200,024; recovery = 24 (not exactly zero)
-  // Use exact zero scenario instead
-});
-
-describe('calculateRoiProjection – exact zero recovery', () => {
-  const result = calculateRoiProjection({
-    utilization: 0.10,
-    contributionPerHour: 16_666.666666666668,
-    fixedCost: 1_200_000,
-    startupCapital: assumptions.startupBaseline,
-    maxCalendarHoursPerMonth: assumptions.maxCalendarHoursPerMonth,
+  it('monthlyRecovery = 20,000 × 50 − 1,000,000 = 0', () => {
+    expect(result.monthlyRecovery).toBe(0);
   });
 
-  it('paybackMonths is Infinity when recovery ≤ 0', () => {
-    // soldHours = 72; recovery = 16666.67 * 72 - 1200000 ≈ 0
-    // If recovery is exactly 0 or negative, payback is Infinity
+  it('paybackMonths is Infinity when recovery is exactly zero', () => {
     expect(result.paybackMonths).toBe(Infinity);
   });
 });

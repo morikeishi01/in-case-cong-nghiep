@@ -419,11 +419,16 @@
   display: none;
   margin-top: calc(var(--grid-unit) * 0.5);
   padding: calc(var(--grid-unit) * 0.375) calc(var(--grid-unit) * 0.5);
-  border: 1px solid #c0392b;
+  border: 1px solid var(--error);
   border-radius: var(--radius);
   background: rgba(192, 57, 43, 0.08);
-  color: #c0392b;
+  color: var(--error);
   font-size: 0.85rem;
+}
+
+.roi-results--stale {
+  opacity: 0.5;
+  border-color: var(--error);
 }
 
 .roi-chart-container {

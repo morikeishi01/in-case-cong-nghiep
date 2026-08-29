@@ -9,7 +9,7 @@
   }
 
   /* Black on white for readability */
-  * {
+  *:not(.roi-chart-svg):not(.roi-chart-svg *) {
     background: #fff !important;
     color: #000 !important;
     box-shadow: none !important;
