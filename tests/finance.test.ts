@@ -337,3 +337,15 @@ describe('assumptions.effectiveCostPerGram', () => {
     expect(assumptions.effectiveCostPerGram).toBe(computed);
   });
 });
+
+// ── 16. Investment components sum to startupBaseline ────────────────
+
+describe('investment components sum to startupBaseline', () => {
+  it('printerCost + filamentInventory + supportingSetupAndBuffer === startupBaseline', () => {
+    const sum =
+      assumptions.printerCost +
+      assumptions.filamentInventory +
+      assumptions.supportingSetupAndBuffer;
+    expect(sum).toBe(assumptions.startupBaseline);
+  });
+});

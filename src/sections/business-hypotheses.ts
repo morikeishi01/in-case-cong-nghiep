@@ -35,7 +35,7 @@ export function renderBusinessHypotheses(): HTMLElement {
         </li>
         <li>
           <span class="hypo-tag hypo-tag--result">K&#7871;t qu&#7843;</span>
-          <span>Chi ph&iacute; hi&#7879;u l&#7921;c: ${formatVND(assumptions.effectiveCostPerGram)}/gram</span>
+          <span>Chi ph&iacute; th&#7921;c t&#7871; sau hao h&#7909;t: ${formatVND(assumptions.effectiveCostPerGram)}/gram</span>
         </li>
         <li>
           <span class="hypo-tag hypo-tag--sensitivity">&#272;&#7863;c t&iacute;nh</span>

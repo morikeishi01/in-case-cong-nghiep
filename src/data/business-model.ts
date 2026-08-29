@@ -5,6 +5,7 @@ import { effectiveCostPerGram } from '../lib/finance';
 export interface BusinessAssumptions {
   readonly printerCost: number;
   readonly filamentInventory: number;
+  readonly supportingSetupAndBuffer: number;
   readonly startupBaseline: number;
   readonly filamentCostPerKg: number;
   readonly wasteRate: number;
@@ -19,6 +20,7 @@ const _wasteRate = 0.1;
 export const assumptions: BusinessAssumptions = {
   printerCost: 12_000_000,
   filamentInventory: 3_000_000,
+  supportingSetupAndBuffer: 3_000_000,
   startupBaseline: 18_000_000,
   filamentCostPerKg: _filamentCostPerKg,
   wasteRate: _wasteRate,

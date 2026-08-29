@@ -32,6 +32,11 @@ export function renderInvestmentSummary(): HTMLElement {
               <td>PLA/PETG ban &#273;&#7847;u, ~10 kg</td>
               <td class="data">${formatVND(assumptions.filamentInventory)}</td>
             </tr>
+            <tr>
+              <td>D&#7909;ng c&#7909;, ph&#7909; t&#249;ng &amp; d&#7921; ph&ograve;ng</td>
+              <td>S&#7845;y nh&#7921;a, bao b&igrave;, qu&#7843;ng c&aacute;o, v&#7889;n d&#7921; ph&ograve;ng</td>
+              <td class="data">${formatVND(assumptions.supportingSetupAndBuffer)}</td>
+            </tr>
             <tr class="total-row">
               <td>T&#7893;ng</td>
               <td></td>

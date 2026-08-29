@@ -165,7 +165,7 @@
 }
 
 .dossier-aggressive .dossier-header::after {
-  content: " (aggressive)";
+  content: " (tham vọng)";
   font-size: 0.7em;
   font-weight: 400;
   opacity: 0.7;

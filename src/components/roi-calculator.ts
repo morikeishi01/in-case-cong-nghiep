@@ -165,7 +165,6 @@ export function createRoiCalculator(container: HTMLElement): void {
               id="roi-contribution"
               class="roi-input"
               min="0" step="1000" value="20000"
-              aria-describedby="roi-contribution-val"
             />
           </div>
           <div class="roi-field">
@@ -175,7 +174,6 @@ export function createRoiCalculator(container: HTMLElement): void {
               id="roi-fixed"
               class="roi-input"
               min="0" step="100000" value="1200000"
-              aria-describedby="roi-fixed-val"
             />
           </div>
           <div class="roi-field">
@@ -185,7 +183,6 @@ export function createRoiCalculator(container: HTMLElement): void {
               id="roi-capital"
               class="roi-input"
               min="0" step="100000" value="${capital}"
-              aria-describedby="roi-capital-val"
             />
           </div>
         </div>
