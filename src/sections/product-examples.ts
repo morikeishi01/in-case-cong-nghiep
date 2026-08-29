@@ -24,12 +24,12 @@ export function renderProductExamples(): HTMLElement {
   section.innerHTML = `
     <div class="container section-inner">
       <div class="section-header">
-        <h2><span class="section-index">[04]</span> V&iacute; d&#7921; s&#7843;n ph&#7849;m</h2>
+        <h2><span class="section-index">[04]</span> V&iacute; d&#7921; v&#7873; s&#7843;n ph&#7849;m</h2>
       </div>
       <p>Gi&aacute; th&agrave;nh &ldquo;fully loaded&rdquo; bao g&#7891;m v&#7853;t li&#7879;u, m&aacute;y, nh&acirc;n c&ocirc;ng l&#7853;p r&#225;p, gia c&ocirc;ng h&#7853;u k&#253; v&agrave; &#273;&oacute;ng g&oacute;i.</p>
       <div class="table-wrapper">
         <table>
-          <caption class="visually-hidden">B&#7843;ng v&iacute; d&#7921; s&#7843;n ph&#7849;m: gi&aacute; th&agrave;nh, gi&aacute; b&aacute;n v&agrave; l&#7907;i nhu&#7853;n bi&ecirc;n</caption>
+          <caption class="visually-hidden">B&#7843;ng v&iacute; d&#7921; v&#7873; s&#7843;n ph&#7849;m: gi&aacute; th&agrave;nh, gi&aacute; b&aacute;n v&agrave; l&#7907;i nhu&#7853;n bi&ecirc;n</caption>
           <thead>
             <tr>
               <th>S&#7843;n ph&#7849;m</th>
