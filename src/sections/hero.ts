@@ -10,7 +10,7 @@ export function renderHero(): HTMLElement {
       <div class="hero-layout">
         <div class="hero-text">
           <p class="dim-label">[01] Giới thiệu</p>
-          <h1>IN CASE C&Ocirc;NG NGHI&#7878;P</h1>
+          <h1>THU&#7852;N L&#7896;C PH&Aacute;T</h1>
           <p class="hero-subtitle">
             V&#7871;t in b&#7843;o v&#7879; c&ocirc;ng nghi&#7879;p &mdash; FDM 3D Printing
           </p>

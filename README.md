@@ -1,4 +1,4 @@
-# IN CASE CONG NGHIEP
+# THUẬN LỘC PHÁT
 
 Phan tich dau tu san xuat case bao ve cong nghiep bang in 3D FDM.
 

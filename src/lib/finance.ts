@@ -1,5 +1,5 @@
 /**
- * Pure finance calculation functions for IN CASE CÔNG NGHIỆP.
+ * Pure finance calculation functions for THUẬN LỘC PHÁT.
  * All monetary values in VND. No DOM, no side effects.
  *
  * Validation contract:

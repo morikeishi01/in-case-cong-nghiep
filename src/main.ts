@@ -44,7 +44,7 @@ const footer = document.createElement('footer');
 footer.className = 'site-footer';
 footer.innerHTML = `
   <div class="container">
-    <p>IN CASE C&Ocirc;NG NGHI&#7878;P &mdash; N&#7873;n t&#7843;ng tr&igrave;nh b&agrave;y nh&agrave; &#273;&#7847;u t&#432;</p>
+    <p>THU&#7852;N L&#7896;C PH&Aacute;T &mdash; N&#7873;n t&#7843;ng tr&igrave;nh b&agrave;y nh&agrave; &#273;&#7847;u t&#432;</p>
   </div>
 `;
 main.appendChild(footer);

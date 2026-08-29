@@ -17,7 +17,7 @@ export function renderBusinessHypotheses(): HTMLElement {
   section.innerHTML = `
     <div class="container section-inner">
       <div class="section-header">
-        <h2><span class="section-index">[07]</span> Gi&#7843; thu&#7871;t kinh doanh</h2>
+        <h2><span class="section-index">[07]</span> Gi&#7843; thuy&#7879;t kinh doanh</h2>
       </div>
       <ul class="hypothesis-list">
         <li>

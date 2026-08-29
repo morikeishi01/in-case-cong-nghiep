@@ -24,7 +24,7 @@ export function renderInvestmentSummary(): HTMLElement {
           <tbody>
             <tr>
               <td>M&aacute;y in FDM</td>
-              <td>M&aacute;y in 3D c&#7845;p nh&#7853;p, kh&#7889;i l&#432;&#7907;ng in 220 &times; 220 &times; 250 mm</td>
+              <td>M&aacute;y in 3D ph&#7893; th&ocirc;ng, kh&#7889;i l&#432;&#7907;ng in 220 &times; 220 &times; 250 mm</td>
               <td class="data">${formatVND(assumptions.printerCost)}</td>
             </tr>
             <tr>

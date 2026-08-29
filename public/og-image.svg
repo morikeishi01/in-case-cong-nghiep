@@ -10,8 +10,8 @@
   <!-- Border frame -->
   <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#65B8E8" stroke-width="1"/>
   <!-- Brand name -->
-  <text x="80" y="200" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="64" font-weight="700" fill="#F3F8FB" letter-spacing="0.04em">IN CASE</text>
-  <text x="80" y="270" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="48" font-weight="700" fill="#65B8E8" letter-spacing="0.04em">C&Ocirc;NG NGHI&#7878;P</text>
+  <text x="80" y="200" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="64" font-weight="700" fill="#F3F8FB" letter-spacing="0.04em">THU&#7852;N L&#7896;C</text>
+  <text x="80" y="270" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="48" font-weight="700" fill="#65B8E8" letter-spacing="0.04em">PH&Aacute;T</text>
   <!-- Capital badge -->
   <rect x="76" y="310" width="360" height="70" fill="none" stroke="#F2C94C" stroke-width="2"/>
   <text x="96" y="356" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="36" font-weight="700" fill="#F2C94C">18&#8211;20 tri&#7879;u &#273;&#7891;ng</text>
@@ -34,5 +34,5 @@
     <line x1="105" y1="15" x2="105" y2="70" stroke-dasharray="3 3" stroke-width="0.5"/>
   </g>
   <!-- URL -->
-  <text x="80" y="560" font-family="Cascadia Code, Consolas, monospace" font-size="14" fill="#65B8E8" opacity="0.5">in-case-cong-nghiep.com</text>
+  <text x="80" y="560" font-family="Cascadia Code, Consolas, monospace" font-size="14" fill="#65B8E8" opacity="0.5">morikeishi01.github.io/in-case-cong-nghiep</text>
 </svg>

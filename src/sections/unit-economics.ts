@@ -12,7 +12,7 @@ export function renderUnitEconomics(): HTMLElement {
       </div>
       <div class="table-wrapper">
         <table>
-          <caption class="visually-hidden">B&#7843;ng kinh t&#7871; &#273;&#417;n v&#7883;: gi&aacute; filament, t&#7927; l&#7879; hao h&#7909;t, gi&aacute; th&agrave;nh hi&#7879;u l&#7921;c</caption>
+          <caption class="visually-hidden">B&#7843;ng kinh t&#7871; &#273;&#417;n v&#7883;: gi&aacute; filament, t&#7927; l&#7879; hao h&#7909;t, chi ph&iacute; th&#7921;c t&#7871; sau hao h&#7909;t</caption>
           <thead>
             <tr>
               <th>Th&ocirc;ng s&#7889;</th>
@@ -32,7 +32,7 @@ export function renderUnitEconomics(): HTMLElement {
               <td>In h&#7887;ng, test, calibration</td>
             </tr>
             <tr>
-              <td>Gi&aacute; th&agrave;nh hi&#7879;u l&#7921;c/gram</td>
+              <td>Chi ph&iacute; th&#7921;c t&#7871; sau hao h&#7909;t/gram</td>
               <td class="data">${formatVND(assumptions.effectiveCostPerGram)}/g</td>
               <td class="dim-label">K&#7871;t qu&#7843; m&ocirc; h&igrave;nh</td>
             </tr>
@@ -42,7 +42,7 @@ export function renderUnitEconomics(): HTMLElement {
               <td>Chi ph&iacute; &#273;i&#7879;n + hao m&ograve;n m&aacute;y</td>
             </tr>
             <tr>
-              <td>Gi&#7901; l&#7883;ch/tu&#7847;n</td>
+              <td>Gi&#7901; l&#7883;ch/th&aacute;ng</td>
               <td class="data">${formatNumber(assumptions.maxCalendarHoursPerMonth)} gi&#7901;/th&aacute;ng</td>
               <td class="dim-label">24h &times; 30 ng&agrave;y = t&#7889;i &#273;a</td>
             </tr>
