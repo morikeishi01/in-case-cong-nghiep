@@ -52,7 +52,7 @@ The page must let a reader understand the full business case in under 3 minutes 
 ### Layout Grid
 
 - Base unit: **24px**. All spacing is a multiple of 24px (or 12px for tight contexts).
-- Max content width: 960px (40 × 24px).
+- Max content width: 1180px (authoritative value in `tokens.css`; plan file retains original 960px estimate for historical reference).
 - Border radius: **0–4px**. No rounded card corners. Sharp, industrial aesthetic.
 
 ---
