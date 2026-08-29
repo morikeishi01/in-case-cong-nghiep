@@ -22,7 +22,7 @@ export function renderBusinessHypotheses(): HTMLElement {
       <ul class="hypothesis-list">
         <li>
           <span class="hypo-tag hypo-tag--assumption">Gi&#7843; &#273;&#7883;nh</span>
-          <span>Gi&aacute; filament ${formatVND(assumptions.filamentCostPerKg)}/kg v&agrave; t&#7887; l&#7879; ph&iacute; ${formatPercent(assumptions.wasteRate)}</span>
+          <span>Gi&aacute; filament ${formatVND(assumptions.filamentCostPerKg)}/kg v&agrave; t&#7927; l&#7879; hao h&#7909;t ${formatPercent(assumptions.wasteRate)}</span>
         </li>
         <li>
           <span class="hypo-tag hypo-tag--assumption">Gi&#7843; &#273;&#7883;nh</span>
