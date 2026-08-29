@@ -63,18 +63,40 @@
     padding: 0.5cm 0;
   }
 
-  /* Hide interactive calculator input controls (when added in Task5)
-     but keep results visible */
-  .roi-calculator-controls,
-  .roi-calculator-controls input,
-  .roi-calculator-controls select,
-  .roi-calculator-controls button,
-  .roi-calculator-controls label {
+  /* Hide interactive calculator controls but keep results visible */
+  .roi-calculator-controls {
     display: none !important;
   }
 
   .roi-calculator-results {
     display: block !important;
+  }
+
+  .roi-error {
+    display: none !important;
+  }
+
+  .roi-chart-container {
+    page-break-inside: avoid;
+  }
+
+  .roi-chart-svg {
+    max-width: 100%;
+  }
+
+  .roi-chart-bar {
+    fill: #666 !important;
+    opacity: 1 !important;
+  }
+
+  .roi-chart-bar--base {
+    fill: #000 !important;
+    stroke: #000 !important;
+  }
+
+  .roi-chart-label,
+  .roi-chart-value {
+    fill: #000 !important;
   }
 
   /* Show URLs after links */

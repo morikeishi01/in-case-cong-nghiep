@@ -304,14 +304,206 @@
   margin-top: calc(var(--grid-unit) * 0.5);
 }
 
-/* ── ROI stub ───────────────────────────────────────────────────────── */
-.stub-notice {
-  border: 1px dashed var(--line);
-  padding: calc(var(--grid-unit) * 1.5);
-  text-align: center;
+/* ── ROI Calculator ──────────────────────────────────────────────────── */
+.roi-calc {
+  margin-top: calc(var(--grid-unit) * 1);
+}
+
+.roi-calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--grid-unit) * 2);
+  align-items: start;
+}
+
+.roi-calculator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--grid-unit) * 1);
+}
+
+.roi-field {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--grid-unit) * 0.25);
+}
+
+.roi-label {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  opacity: 0.6;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.roi-range-row {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--grid-unit) * 0.5);
+}
+
+.roi-range {
+  flex: 1;
+  height: 44px;
+  min-width: 0;
+  accent-color: var(--signal);
+  cursor: pointer;
+}
+
+.roi-output {
+  min-width: 48px;
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.roi-input {
+  font-family: var(--font-data);
+  font-size: 0.9rem;
+  padding: calc(var(--grid-unit) * 0.5) calc(var(--grid-unit) * 0.375);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 44px;
+  width: 100%;
+}
+
+.roi-input:focus-visible {
+  outline: 2px solid var(--line);
+  outline-offset: 2px;
+}
+
+.roi-calculator-results {
+  padding: calc(var(--grid-unit) * 1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(4, 42, 73, 0.03);
+}
+
+.roi-result-grid {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--grid-unit) * 0.75);
+}
+
+.roi-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: calc(var(--grid-unit) * 0.5);
+}
+
+.roi-result-label {
+  flex-shrink: 0;
+}
+
+.roi-result-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.roi-result-payback {
+  padding-top: calc(var(--grid-unit) * 0.5);
+  border-top: 1px solid var(--line);
+  margin-top: calc(var(--grid-unit) * 0.25);
+}
+
+.roi-payback-value {
+  font-size: 1.4rem;
+  color: var(--signal);
+  font-weight: 700;
+}
+
+.roi-error {
+  display: none;
+  margin-top: calc(var(--grid-unit) * 0.5);
+  padding: calc(var(--grid-unit) * 0.375) calc(var(--grid-unit) * 0.5);
+  border: 1px solid #c0392b;
+  border-radius: var(--radius);
+  background: rgba(192, 57, 43, 0.08);
+  color: #c0392b;
+  font-size: 0.85rem;
+}
+
+.roi-chart-container {
+  margin-top: calc(var(--grid-unit) * 1.5);
+}
+
+/* ── SVG Chart ──────────────────────────────────────────────────────── */
+.roi-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.roi-chart-bar {
+  fill: var(--line);
+  opacity: 0.7;
+}
+
+.roi-chart-bar--base {
+  fill: var(--signal);
+  opacity: 1;
+}
+
+.roi-chart-bar--user {
+  fill: var(--line);
+  opacity: 1;
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.roi-chart-bar--negative {
+  fill: none;
+  stroke: #999;
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.roi-chart-label {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  fill: var(--ink);
+  dominant-baseline: middle;
+}
+
+.roi-chart-label--base {
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.roi-chart-value {
+  font-family: var(--font-data);
+  font-size: 11px;
+  fill: var(--ink);
+  dominant-baseline: middle;
+}
+
+@media (max-width: 768px) {
+  .roi-calc-layout {
+    grid-template-columns: 1fr;
+    gap: calc(var(--grid-unit) * 1.5);
+  }
+}
+
+@media (max-width: 375px) {
+  .roi-range {
+    height: 48px;
+  }
+
+  .roi-input {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .roi-result-value {
+    font-size: 1rem;
+  }
+
+  .roi-payback-value {
+    font-size: 1.2rem;
+  }
 }
 
 /* ── CTA block ──────────────────────────────────────────────────────── */
